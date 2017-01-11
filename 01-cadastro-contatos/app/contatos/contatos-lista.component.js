@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var contatos_mock_1 = require("./contatos-mock");
 var ContatosListaComponent = (function () {
     function ContatosListaComponent() {
+        this.contatos = contatos_mock_1.CONTATOS;
     }
     return ContatosListaComponent;
 }());
