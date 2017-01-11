@@ -9,24 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var app_component_1 = require("./app.component");
-var contatos_module_1 = require("./contatos/contatos.module");
-var AppModule = (function () {
-    function AppModule() {
+var ContatosListaComponent = (function () {
+    function ContatosListaComponent() {
     }
-    return AppModule;
+    return ContatosListaComponent;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            platform_browser_1.BrowserModule,
-            contatos_module_1.ContatosModule
-        ],
-        declarations: [app_component_1.AppComponent],
-        bootstrap: [app_component_1.AppComponent]
+ContatosListaComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'contatos-lista',
+        templateUrl: 'contatos-lista.component.html'
     }),
     __metadata("design:paramtypes", [])
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], ContatosListaComponent);
+exports.ContatosListaComponent = ContatosListaComponent;
+//# sourceMappingURL=contatos-lista.component.js.map
