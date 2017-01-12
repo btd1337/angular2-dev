@@ -1,3 +1,5 @@
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -12,7 +14,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let c of contatos">
+                    <tr *ngFor="let c of contatos" [routerLink]="['/contato/salvar', c.id]">
                         <td>{{c.nome}}</td>
                         <td>{{c.email}}</td>
                         <td>{{c.telefone}}</td>
