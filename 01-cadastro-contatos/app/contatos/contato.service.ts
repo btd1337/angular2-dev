@@ -10,7 +10,7 @@ export class ContatoService{
 
     getContatosSlowly() : Promise<Contato[]> {
         return new Promise((resolve, reject) => {
-            setTimeout(resolve, 3000);
+            setTimeout(resolve, 1000);
         })
         .then(() => {
             console.log("Primeiro then");

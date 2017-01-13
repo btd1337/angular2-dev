@@ -16,7 +16,7 @@ var ContatoService = (function () {
     ContatoService.prototype.getContatosSlowly = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            setTimeout(resolve, 3000);
+            setTimeout(resolve, 1000);
         })
             .then(function () {
             console.log("Primeiro then");
