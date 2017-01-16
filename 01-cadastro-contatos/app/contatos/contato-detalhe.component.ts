@@ -2,7 +2,9 @@ import {Component , OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Location} from '@angular/common';
 
+import {Contato} from './contato.model';
 import {ContatoService} from './contato.service';
+
 
 @Component({
     moduleId: module.id,
@@ -11,18 +13,28 @@ import {ContatoService} from './contato.service';
 })
 
 export class ContatoDetalheComponent implements OnInit{
+
+    contato:Contato;
     
     constructor(
-        private ContatoService: ContatoService,
+        private contatoService: ContatoService,
         private route: ActivatedRoute,
         private location: Location
     ){}
     
     ngOnInit(): void {
         console.log('on init');
+        this.contato = new Contato(0, "", "", "");
         this.route.params.forEach((params: Params) => {
             let id : number = +params['id'];    // + converter para número
             console.log(id);
-        })
+
+            if(id){
+                this.contatoService.getContato(id)
+                    .then((contato: Contato) => {
+                        this.contato = contato;
+                });
+            }
+        });
     }
 }

@@ -13,6 +13,10 @@ var ContatoService = (function () {
     ContatoService.prototype.getContatos = function () {
         return Promise.resolve(contatos_mock_1.CONTATOS);
     };
+    ContatoService.prototype.getContato = function (id) {
+        return this.getContatos()
+            .then(function (contatos) { return contatos.find(function (contato) { return contato.id === id; }); });
+    };
     ContatoService.prototype.getContatosSlowly = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
