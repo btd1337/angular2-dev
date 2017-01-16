@@ -18,7 +18,22 @@ var ContatoDetalheComponent = (function () {
         this.contatoService = contatoService;
         this.route = route;
         this.location = location;
+        this.isNew = true;
     }
+    ContatoDetalheComponent.prototype.getFormGroupClass = function (isValid, isPristine) {
+        return {
+            'form-group': true,
+            'has-danger': !isValid && !isPristine,
+            'has-success': isValid && !isPristine
+        };
+    };
+    ContatoDetalheComponent.prototype.getFormControlClass = function (isValid, isPristine) {
+        return {
+            'form-control': true,
+            'has-danger': !isValid && !isPristine,
+            'has-success': isValid && !isPristine
+        };
+    };
     ContatoDetalheComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log('on init');
@@ -27,12 +42,19 @@ var ContatoDetalheComponent = (function () {
             var id = +params['id']; // + converter para número
             console.log(id);
             if (id) {
+                _this.isNew = false;
                 _this.contatoService.getContato(id)
                     .then(function (contato) {
                     _this.contato = contato;
                 });
             }
         });
+    };
+    ContatoDetalheComponent.prototype.onSubmit = function () {
+        if (this.isNew) {
+        }
+        else {
+        }
     };
     return ContatoDetalheComponent;
 }());
