@@ -51,10 +51,14 @@ var ContatoDetalheComponent = (function () {
         });
     };
     ContatoDetalheComponent.prototype.onSubmit = function () {
+        var _this = this;
+        var promise;
         if (this.isNew) {
+            promise = this.contatoService.create(this.contato);
         }
         else {
         }
+        promise.then(function (contato) { return _this.location.back(); });
     };
     return ContatoDetalheComponent;
 }());

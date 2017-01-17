@@ -57,10 +57,13 @@ export class ContatoDetalheComponent implements OnInit {
     }
 
     onSubmit(): void {
+        let promise;
         if (this.isNew) {
-            // novo
+            promise = this.contatoService.create(this.contato)
         }else {
             // edita
         }
+
+        promise.then(contato => this.location.back());
     }
 }
