@@ -1,52 +1,52 @@
-import {Component , OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {Location} from '@angular/common';
+import {Component , OnInit} from "@angular/core";
+import {ActivatedRoute, Params} from "@angular/router";
+import {Location} from "@angular/common";
 
-import {Contato} from './contato.model';
-import {ContatoService} from './contato.service';
+import {Contato} from "./contato.model";
+import {ContatoService} from "./contato.service";
 
 
 @Component({
     moduleId: module.id,
-    selector: 'contato-detalhe',
-    templateUrl: 'contato-detalhe.component.html'
+    selector: "contato-detalhe",
+    templateUrl: "contato-detalhe.component.html"
 })
 
-export class ContatoDetalheComponent implements OnInit{
+export class ContatoDetalheComponent implements OnInit {
 
-    contato:Contato;
+    contato: Contato;
     private isNew: boolean = true;
-    
+
     constructor(
         private contatoService: ContatoService,
         private route: ActivatedRoute,
         private location: Location
-    ){}
+    ) {}
 
-    getFormGroupClass(isValid:boolean, isPristine: boolean): {} {
+    getFormGroupClass(isValid: boolean, isPristine: boolean): {} {
         return {
-            'form-group': true, 
-            'has-danger': !isValid && !isPristine,
-            'has-success':isValid && !isPristine 
+            "form-group": true,
+            "has-danger": !isValid && !isPristine,
+            "has-success": isValid && !isPristine
         };
     }
 
-    getFormControlClass(isValid:boolean, isPristine: boolean): {} {
+    getFormControlClass(isValid: boolean, isPristine: boolean): {} {
         return {
-            'form-control': true, 
-            'has-danger': !isValid && !isPristine,
-            'has-success':isValid && !isPristine 
+            "form-control": true,
+            "has-danger": !isValid && !isPristine,
+            "has-success": isValid && !isPristine
         };
     }
-    
+
     ngOnInit(): void {
-        console.log('on init');
+        console.log("on init");
         this.contato = new Contato(0, "", "", "");
         this.route.params.forEach((params: Params) => {
-            let id : number = +params['id'];    // + converter para número
+            let id: number = +params["id"];    // + converter para número
             console.log(id);
 
-            if(id){
+            if (id) {
                 this.isNew = false;
                 this.contatoService.getContato(id)
                     .then((contato: Contato) => {
@@ -56,11 +56,11 @@ export class ContatoDetalheComponent implements OnInit{
         });
     }
 
-    onSubmit() : void {
-        if(this.isNew){
-            //novo
-        }else{
-            //edita
+    onSubmit(): void {
+        if (this.isNew) {
+            // novo
+        }else {
+            // edita
         }
     }
 }

@@ -28,8 +28,8 @@ var ContatosListaComponent = (function () {
 ContatosListaComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'contatos-lista',
-        templateUrl: 'contatos-lista.component.html'
+        selector: "contatos-lista",
+        templateUrl: "contatos-lista.component.html"
     }),
     __metadata("design:paramtypes", [contato_service_1.ContatoService])
 ], ContatosListaComponent);

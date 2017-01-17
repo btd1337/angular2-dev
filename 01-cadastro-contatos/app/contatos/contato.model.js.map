@@ -1,1 +1,1 @@
-{"version":3,"file":"contato.model.js","sourceRoot":"","sources":["contato.model.ts"],"names":[],"mappings":";AAAA;IACI,iBACI,EAAU,EACV,IAAY,EACZ,KAAa,EACb,QAAgB;IAAE,CAAC;IAC3B,cAAC;AAAD,CAAC,AAND,IAMC;AANY,0BAAO"}
+{"version":3,"file":"contato.model.js","sourceRoot":"","sources":["contato.model.ts"],"names":[],"mappings":";AAAA;IAOI,iBAAa,GAAW,EAAE,KAAa,EAAE,MAAc,EAAE,SAAiB;QACxE,IAAI,CAAC,EAAE,GAAG,GAAG,CAAC;QACd,IAAI,CAAC,IAAI,GAAG,KAAK,CAAC;QAClB,IAAI,CAAC,KAAK,GAAG,MAAM,CAAC;QACpB,IAAI,CAAC,QAAQ,GAAG,SAAS,CAAC;IAC5B,CAAC;IACL,cAAC;AAAD,CAAC,AAbD,IAaC;AAbY,0BAAO"}

@@ -22,24 +22,24 @@ var ContatoDetalheComponent = (function () {
     }
     ContatoDetalheComponent.prototype.getFormGroupClass = function (isValid, isPristine) {
         return {
-            'form-group': true,
-            'has-danger': !isValid && !isPristine,
-            'has-success': isValid && !isPristine
+            "form-group": true,
+            "has-danger": !isValid && !isPristine,
+            "has-success": isValid && !isPristine
         };
     };
     ContatoDetalheComponent.prototype.getFormControlClass = function (isValid, isPristine) {
         return {
-            'form-control': true,
-            'has-danger': !isValid && !isPristine,
-            'has-success': isValid && !isPristine
+            "form-control": true,
+            "has-danger": !isValid && !isPristine,
+            "has-success": isValid && !isPristine
         };
     };
     ContatoDetalheComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log('on init');
+        console.log("on init");
         this.contato = new contato_model_1.Contato(0, "", "", "");
         this.route.params.forEach(function (params) {
-            var id = +params['id']; // + converter para número
+            var id = +params["id"]; // + converter para número
             console.log(id);
             if (id) {
                 _this.isNew = false;
@@ -61,8 +61,8 @@ var ContatoDetalheComponent = (function () {
 ContatoDetalheComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'contato-detalhe',
-        templateUrl: 'contato-detalhe.component.html'
+        selector: "contato-detalhe",
+        templateUrl: "contato-detalhe.component.html"
     }),
     __metadata("design:paramtypes", [contato_service_1.ContatoService,
         router_1.ActivatedRoute,
