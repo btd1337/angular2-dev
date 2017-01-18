@@ -54,9 +54,12 @@ var ContatoDetalheComponent = (function () {
         var _this = this;
         var promise;
         if (this.isNew) {
+            console.log("Cadastrar Contato");
             promise = this.contatoService.create(this.contato);
         }
         else {
+            console.log("Alterar Contato");
+            promise = this.contatoService.update(this.contato);
         }
         promise.then(function (contato) { return _this.location.back(); });
     };

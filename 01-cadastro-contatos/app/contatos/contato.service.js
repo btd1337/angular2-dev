@@ -28,9 +28,25 @@ var ContatoService = (function () {
             .then(function (contatos) { return contatos.find(function (contato) { return contato.id === id; }); });
     };
     ContatoService.prototype.create = function (contato) {
-        return this.http.post(this.contatosUrl, JSON.stringify(contato), { headers: this.headers })
+        return this.http
+            .post(this.contatosUrl, JSON.stringify(contato), { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
+    };
+    ContatoService.prototype.update = function (contato) {
+        var url = this.contatosUrl + "/" + contato.id;
+        return this.http.put(url, JSON.stringify(contato), { headers: this.headers })
+            .toPromise()
+            .then(function () { return contato; })
+            .catch(this.handleError);
+    };
+    ContatoService.prototype.delete = function (contato) {
+        var url = this.contatosUrl + "/" + contato.id;
+        return this.http
+            .delete(url, { headers: this.headers })
+            .toPromise()
+            .then(function () { return contato; })
             .catch(this.handleError);
     };
     ContatoService.prototype.handleError = function (err) {

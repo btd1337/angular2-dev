@@ -6,6 +6,7 @@ import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {AppComponent} from "./app.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {ContatosModule} from "./contatos/contatos.module";
+import {DialogService} from "./dialog.service";
 import {InMemoryDataService} from "./in-memory-data.service";
 
 
@@ -19,7 +20,10 @@ import {InMemoryDataService} from "./in-memory-data.service";
             InMemoryWebApiModule.forRoot(InMemoryDataService)
         ],
         declarations: [AppComponent],
-        bootstrap: [AppComponent]
+        bootstrap: [AppComponent],
+        providers: [
+            DialogService
+        ]
     }
 )
 export class AppModule {
