@@ -23,6 +23,10 @@ var ContatosListaComponent = (function () {
             _this.contatos = contatos;
         }).catch(function (err) {
             console.log(err);
+            _this.mostrarMensagem({
+                tipo: "danger",
+                texto: "Ocorreu um erro ao tentar buscar a lista de contatos!"
+            });
         });
     };
     ContatosListaComponent.prototype.onDelete = function (contato) {
@@ -34,11 +38,35 @@ var ContatosListaComponent = (function () {
                     .delete(contato)
                     .then(function () {
                     _this.contatos = _this.contatos.filter(function (c) { return c.id != contato.id; });
+                    _this.mostrarMensagem({
+                        tipo: "success",
+                        texto: "Contato Deletado!"
+                    });
                 }).catch(function (err) {
                     console.log(err);
+                    _this.mostrarMensagem({
+                        tipo: "danger",
+                        texto: "Ocorreu um erro ao tentar deletar o contato!"
+                    });
                 });
             }
         });
+    };
+    ContatosListaComponent.prototype.mostrarMensagem = function (mensagem) {
+        var _this = this;
+        this.mensagem = mensagem;
+        this.montarClasses(mensagem.tipo);
+        if (mensagem.tipo != "danger") {
+            setTimeout(function () {
+                _this.mensagem = undefined;
+            }, 3000);
+        }
+    };
+    ContatosListaComponent.prototype.montarClasses = function (tipo) {
+        this.classesCss = {
+            'alert': true
+        };
+        this.classesCss["alert-" + tipo] = true;
     };
     return ContatosListaComponent;
 }());
