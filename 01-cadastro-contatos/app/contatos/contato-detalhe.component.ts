@@ -1,10 +1,9 @@
-import {Component , OnInit} from "@angular/core";
-import {ActivatedRoute, Params} from "@angular/router";
-import {Location} from "@angular/common";
+import { ActivatedRoute, Params } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
 
-import {Contato} from "./contato.model";
-import {ContatoService} from "./contato.service";
-
+import { Contato } from "./contato.model";
+import { ContatoService } from "./contato.service";
+import { Location } from "@angular/common";
 
 @Component({
     moduleId: module.id,
@@ -14,7 +13,7 @@ import {ContatoService} from "./contato.service";
 
 export class ContatoDetalheComponent implements OnInit {
 
-    contato: Contato;
+    contato: Contato;    
     private isNew: boolean = true;
 
     constructor(

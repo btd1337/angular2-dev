@@ -1,12 +1,11 @@
-import {NgModule} from '@angular/core'
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-
+import { ContatoBuscaComponent } from "./contato-busca.component";
 import {ContatoDetalheComponent}  from './contato-detalhe.component';
-import {ContatosListaComponent} from './contatos-lista.component';
 import {ContatoRoutingModule} from './contato-rounting.module';
 import {ContatoService} from './contato.service';
-
+import {ContatosListaComponent} from './contatos-lista.component';
+import {FormsModule} from '@angular/forms';
+import {NgModule} from '@angular/core'
 
 @NgModule({
     imports:[
@@ -15,10 +14,12 @@ import {ContatoService} from './contato.service';
         FormsModule
     ],
     declarations: [
+        ContatoBuscaComponent,
         ContatosListaComponent,
         ContatoDetalheComponent
     ],
     exports: [
+        ContatoBuscaComponent,
         ContatosListaComponent
     ],
     providers:[

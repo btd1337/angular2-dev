@@ -1,16 +1,17 @@
-import {Injectable} from "@angular/core";
-import {Http, Headers, Response} from "@angular/http";
-
 import "rxjs/add/operator/toPromise";
-import {Contato} from "./contato.model";
+
+import {Headers, Http, Response} from "@angular/http";
+
 import {CONTATOS} from "./contatos-mock";
+import {Contato} from "./contato.model";
+import {Injectable} from "@angular/core";
 
 @Injectable()
 export class ContatoService {
     private contatosUrl: string = "app/contatos";
     private headers = new Headers({"Content-Type": "application/json"})
     constructor(
-      private http: Http
+      private http: Http 
     ) {}
     getContatos(): Promise<Contato[]> {
         return this.http.get(this.contatosUrl)

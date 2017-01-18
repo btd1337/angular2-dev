@@ -8,11 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var common_1 = require("@angular/common");
+var core_1 = require("@angular/core");
 var contato_model_1 = require("./contato.model");
 var contato_service_1 = require("./contato.service");
+var common_1 = require("@angular/common");
 var ContatoDetalheComponent = (function () {
     function ContatoDetalheComponent(contatoService, route, location) {
         this.contatoService = contatoService;
