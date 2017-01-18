@@ -24,6 +24,9 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr *ngIf="contatos.length==0" >
+                        <td colspan="4" align="center">Nenhum Registro Encontrado</td>
+                    </tr>
                     <tr *ngFor="let c of contatos" [routerLink]="['/contato/salvar', c.id]">
                         <td>{{c.nome}}</td>
                         <td>{{c.email}}</td>
