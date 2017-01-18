@@ -70,6 +70,11 @@ var ContatoService = (function () {
             return _this.getContatos();
         });
     };
+    ContatoService.prototype.search = function (term) {
+        return this.http
+            .get(this.contatosUrl + "/?nome=" + term)
+            .map(function (res) { return res.json().data; });
+    };
     return ContatoService;
 }());
 ContatoService = __decorate([
