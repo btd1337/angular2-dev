@@ -20,20 +20,27 @@ var ContatoBuscaComponent = (function () {
     ContatoBuscaComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.contatos = this.termosDaBusca
-            .debounceTime(500)
-            .switchMap(function (term) {
-            console.log("Fez a busca", term);
-            return term ? _this.contatoService.search(term) : Observable_1.Observable.of([]);
+            .debounceTime(500) //aguarde por 300ms para emitir novos eventos
+            .distinctUntilChanged() //ignore se o próximo termo de busca for igual ao anterior
+            .switchMap(function (term) { return term ? _this.contatoService.search(term) : Observable_1.Observable.of([]); })
+            .catch(function (err) {
+            console.log(err);
+            return Observable_1.Observable.of([]);
         });
-        this.contatos.subscribe(function (contatos) {
-            console.log("retornou do servidor: ", contatos);
-        });
+    };
+    ContatoBuscaComponent.prototype.ngOnChanges = function (changes) {
+        var busca = changes["busca"];
+        this.search(busca.currentValue);
     };
     ContatoBuscaComponent.prototype.search = function (termo) {
         this.termosDaBusca.next(termo);
     };
     return ContatoBuscaComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ContatoBuscaComponent.prototype, "busca", void 0);
 ContatoBuscaComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
